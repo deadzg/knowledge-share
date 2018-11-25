@@ -1,4 +1,6 @@
 
+![alt text](https://github.com/deadzg/knowledge-share/blob/master/CSS/css-decision-flow.png)
+
 The styles provided by browser are called user-agent styles (Default behaviour which browser provides to h1, h2, p, li, ul etc)
 What we add are author styles (author origin)
 
