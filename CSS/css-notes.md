@@ -7,6 +7,9 @@ What we add are author styles (author origin)
 Check CSS feature based on browser
 https://caniuse.com/
 
+Generate code for centring elements in CSS
+http://howtocenterincss.com/
+
 Origin
 Priority based on origin: Author Important > Author > User-agent
 
@@ -103,3 +106,29 @@ Mastering the Box Model
 * In order to override the above behaviour:  box-sizing: border-box instead of content-box. With this model, padding doesn’t make an element wider; it makes the innter content narrower. content + padding + border
 * * => universal selector  eg. * {box-sizing: border-box}
 * In order to apply any style to all elements + psuedo elements of all types eg: *, ::before, :: after {box-sizing: border-box} . With this css, if you are using third party components with their own css, you may see some broken layout if the CSS wasn’t writted with this fix in mind. To fix this. :root {box-sizing: border-box} *,::before, ::after {box-sizing: inherit} .third-party-component {box-sizing: content-box}
+* Normal document flow refers to the default layout behaviour of elements on the page. Inline elements flow along with the text of the page, from left to right, line wrapping when they reach the edge of their container. Block-level elements fall on individual lines, with a line break above and below
+* When the height of an element is explicitly set, you run the risk of it's content overflowing the container
+* Overflow behaviour: 
+    * visible (default value) : All content visible, even when it overflows container's edge
+    * hidden : Content that overflows the container's padding edge is clipped and won't be visible
+    * scroll : Scrollbars are added to the containers so the user can scroll to see the remaining content
+    * auto : Scrollbars are added to the container only if the contents overflow
+* Best Practice: Prefer auto over scroll,as we don't want to show scrollbars unnecessarily 
+* Control horizontal overflow using overflow-x . Use case: long URL   
+* Control verticle overflow using overflow-y
+* Bad Practice : Explicitly setting both x and y to different values tends to have unpredictable results
+* Bad Practice: Never specify height in percentage. Reason: Percentage refers to the size of element's containing block; the height of that container is determined by the height of its children. This produces a circular definition that the browser cannot resolve, so it will ignore the declaration. For this to work, the parent must have an explicit height.
+* Use cases: Container to fill the screen. Use vh units ie. 100vh  =>height of the viewport
+* Use case: Create columns of equal height 
+    * Method 1: Parent of column display:table . By default the table won't expand to 100% width like a block element, so we need to declare width explictly to 100%.  Each column display:table-cell with the required width percentage. Use border-spacing to give margin as the table-cell doesnot respect margin
+    * Method 2: **Using Flexbox** -> 
+        * Using flexbox produces elements of equal height
+        * Best Practice: Favor the use of flexbox instead of table layout if you aren't actively supporting IE9 or older
+        * Give parent container display: flex
+* Bad Practice: Never explicitly set the height of the element unless no other choice is left
+* min-height : The element will be atleast as high as you specify and if it doesnot fit, the browser will allow the element to grow naturally to prevent overflow
+* max-height: Allows an element to size naturally up to a point, post that the content will overflow.
+* Similar is the behaviour for **min-width** and **max-width**
+* Vertical Centering
+    * vertical-align declaration only affects inline and table-cell elements
+    * For block elements give equal amount of padding at top and bottom to center the content
