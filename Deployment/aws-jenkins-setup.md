@@ -65,5 +65,7 @@ Source Files: target/*.war
 
 Exec Command:
 cd /home/ec2-user
+
 touch deploy-status.txt
+
 echo "NEW_BUILD" >> deploy-status.txts
