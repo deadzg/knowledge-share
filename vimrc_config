@@ -4,3 +4,5 @@ set autoindent
 set softtabstop=4 
 set ruler
 se mouse+=a
+
+
