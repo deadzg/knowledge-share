@@ -14,6 +14,7 @@ Q:Find a text in list of files returned by find:
 Solution:
 find ./ -name *.csproj -print0 | xargs -0 grep 'Include' | grep Microsoft.Extensions
 
+
 Explaination:
 print0 -> separates the filenames with a 0 (NULL) byte so that names containing spaces or newlines can be interpreted correctly
 
