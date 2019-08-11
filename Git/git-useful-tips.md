@@ -19,5 +19,11 @@ Steps
 ### Use case
 I want to see runtime changes to my md files before committing to github
 
-Use the below app to develop md file
+Use the below app to develop md file:
 [https://stackedit.io/](https://stackedit.io/)
+
+## Adding and Committing code in one command
+I want to add and commit the changed file in the repository in single command
+
+Use the below git command:
+git commit -a -m "Placeholder for message"
