@@ -14,3 +14,10 @@ Steps
 - Set username: git config `user.name` "testuserB"
 - Set useremail: git config user.email "`testuserB@abc.com`"
 - Verify using: git config --list
+
+## MD file editor
+### Use case
+I want to see runtime changes to my md files before committing to github
+
+Use the below app to develop md file
+[https://stackedit.io/](https://stackedit.io/)
