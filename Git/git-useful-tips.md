@@ -1,0 +1,16 @@
+# Git Usage : Tips
+
+## Overwrite Git profile
+### Use case
+Global git profile is configured with user account A. For a particular repository I want to set the config for user account B
+
+Prequisites:
+- Clone the repository for which git profile for B has to be set
+- Make a note of user name for user B (testuserB)
+- Make a note of user email for user B (configured in github)
+
+Steps
+- Navigate to the repository for which needs to be configured
+- Set username: git config `user.name` "testuserB"
+- Set useremail: git config user.email "`testuserB@abc.com`"
+- Verify using: git config --list
