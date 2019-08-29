@@ -5,6 +5,8 @@
 	- Spike Arrest
 	- IP Whitelisting
 	- CSRF
+        - Analyze traffic patterns to put bots away using ML
+        - Threat Protection: XML Poisioning, SQL and JSON Injection, Bot attacks
 	- Authentication and Authorization
 		- OAuth2
 			- Grant types
@@ -21,3 +23,5 @@
 - Logging
 - HATEOS
 - Analytics
+- Compliance with PCI DSS, HIPAA, SOC 2 whereever applicable
+- Scale and Compute: Handle massive number of API keys and tokens and compile policies at runtime
