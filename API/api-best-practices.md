@@ -2,6 +2,7 @@
 
 - Versioning
 - Security
+        - CORS
 	- Spike Arrest
 	- IP Whitelisting
 	- CSRF
