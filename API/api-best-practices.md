@@ -5,7 +5,7 @@
 	- Query Params
 	- Custom Header
 	- Content-negotiation header
-		Eg: headers = "Accept=application/users-v1+json"
+		- Eg: headers = "Accept=application/users-v1+json"
 
 - Security
     - CORS
@@ -15,6 +15,12 @@
         - Analyze traffic patterns to put bots away using ML
         - Threat Protection: XML Poisioning, SQL and JSON Injection, Bot attacks
 	- Authentication and Authorization
+		- Authorization Header
+			- Schemes
+				- Basic Authentication
+				- Hash based message authentication (HMAC)
+				- JWT
+				- OAuth 2.0 Bearer authentication token
 		- OAuth2
 			- Grant types
 				- Client Credentials
@@ -24,7 +30,6 @@
 			- Scope
 			- Expiry Time
 			- Access Token, Refresh Token, ID Token	
-		- Basic Auth
 		- API Key
 - Open API Specification (Swagger)
 - Logging
@@ -33,3 +38,8 @@
 - Compliance with PCI DSS, HIPAA, SOC 2 whereever applicable
 - Scale and Compute: Handle massive number of API keys and tokens and compile policies at runtime
 - Alerting and Notification
+- Rate Limiting
+- Idempotent
+- Pagination
+- Error and exception logging
+- Statelessness
