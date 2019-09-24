@@ -1,8 +1,14 @@
 # API Best Practices
 
 - Versioning
+	- URI Path
+	- Query Params
+	- Custom Header
+	- Content-negotiation header
+		Eg: headers = "Accept=application/users-v1+json"
+
 - Security
-        - CORS
+    - CORS
 	- Spike Arrest
 	- IP Whitelisting
 	- CSRF
@@ -26,3 +32,4 @@
 - Analytics
 - Compliance with PCI DSS, HIPAA, SOC 2 whereever applicable
 - Scale and Compute: Handle massive number of API keys and tokens and compile policies at runtime
+- Alerting and Notification
