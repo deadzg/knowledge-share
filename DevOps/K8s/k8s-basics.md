@@ -56,7 +56,9 @@ KNode : A worker node that participates in a k8s cluster is usually implemented 
 - etcd : It is a highly-available key-value data store used by k8s to store all of the API objects (that is, Pod, Deployment) that we create via the kubectl command-line or by calling the kube-apiserver
 
 - kubelet: It is the primary "node agent" that runs on each node. The kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through apiserver) and ensures that the containers described in those PodSpecs are running and healthy
-  
+
+- namespaces: Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces
+
 
 ### Enterprise distributions:
 
