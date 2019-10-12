@@ -3,7 +3,7 @@
 
 ## Basic Commands
 
-- Create a dockerfile and add which image to pull from along with other commands
+- Create a dockerfile and add which image to pull from along with other commands: `docker build -t <custom-image-name> .`
 
 - Build docker image from docker file: `docker build `
 
