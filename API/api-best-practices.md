@@ -22,9 +22,10 @@
 				- JWT
 				- OAuth 2.0 Bearer authentication token
 		- OAuth2
-			- Grant types
+			- Grant types 
 				- Client Credentials
-				- Authorization Code
+				- Authorization Code:
+					- Three legged OAuth
 				- Implicit
 				- Password
 			- Scope

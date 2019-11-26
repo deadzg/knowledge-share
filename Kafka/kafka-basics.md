@@ -10,11 +10,18 @@
  - Disk-based Retention
  - Scalable
  - High Performance
- 
+
 ## Usecases
  - Publish + Subscribe
  - Durable storage: Data distribution on multiple nodes for HA
  - Process/Transformation : Manipulate the data as it arrives enabled by Streams API
+
+ ## Business Usecases
+ - Activity Tracking
+ - Send notification
+ - Metrics and Logging
+ - Commit Log
+ - Stream processing
 
 ## Key Points
  
