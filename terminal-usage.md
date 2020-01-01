@@ -18,3 +18,7 @@ find ./ -name *.csproj -print0 | xargs -0 grep 'Include' | grep Microsoft.Extens
 On most of the platform bash doesnot use .bashrc for login shells. So it reads bash_profile or .profile.
 **Solution**
 Add `source ~/.bashrc` in your bash_profile
+
+## Find service running on a specific port
+`sudo lsof -i :<port-number>`
+Eg: `sudo lsof -i :8080`

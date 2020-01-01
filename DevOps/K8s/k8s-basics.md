@@ -144,3 +144,17 @@ KNode : A worker node that participates in a k8s cluster is usually implemented 
 
 - In an AWS env, k8s will provision an ELB service
 
+There are four types of services in K8s:
+ - ClusterIP
+ 	- Exposes the service on the cluster internal IP
+ 	- Default type
+ - NodePort
+ 	- Exposes the service on each Node's IP at static port
+ 	- A route from NodePort service to ClusterIP is automaticall created
+ 	- Can connect to service from outside cluster using <NodeIP>:<NodePort>
+ - LoadBalancer
+ 	- Exposes the service externally using cloud providers load balancer
+ 	- NodePort and CLusterIP service to which external loadbalancer will route are automatically created
+ - ExternalName
+ 	- Maps the service to the contents of the external name field by returning a CNAME record with its value
+
