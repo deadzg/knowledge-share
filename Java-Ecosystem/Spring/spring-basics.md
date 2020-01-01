@@ -70,11 +70,11 @@ T=> type of entity to handle
 ID =>  the type of the entity's identifier
 
 ## How to generate Swagger document in Spring Boot Application?
--You need to use SpringFox dependency and provide a Docket bean which is the main bean used to configure SpringFox
+- You need to use SpringFox dependency and provide a Docket bean which is the main bean used to configure SpringFox
 
-## Compatison of JDBC vs JPA
+## Comparison of JDBC vs JPA
 - JDBC: is standard for Database Access and running SQL against it. It is one of the underlying technologies behind most Java database access including JPA(for relational data stores) providers
-Disadvantage: You can often have some crappy code where lots of mapping between data sets and objects occur, logic is mixed with in SQL ..
+Disadvantage: You can often have some crappy code where lots of mapping between data sets and objects occur, logic is mixed with in SQL
 
 - JPA: is standard for ORM
 	It allows to map object in code to db tables. It can hide SQl from developers so they deal in java classes. It allows to load and save data magically.
