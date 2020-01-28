@@ -44,3 +44,4 @@
 - Pagination
 - Error and exception logging
 - Statelessness
+- API Deprecation Plan
