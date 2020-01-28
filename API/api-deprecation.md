@@ -15,9 +15,9 @@
 - You can specify older versions in your API calls as long as they are available and your app has made calls to that version. For example, if your app was created after v2.0 was released and makes calls using v2.0, it will be able to make calls to v2.0 until the version expires even after newer versions have been released. If you created your app after v2.0 but did not make any calls until v2.2, your app will not be able to make calls using v2.0 or to v2.1
 
 
-Resources:
-https://zapier.com/engineering/api-geriatrics/
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410
-https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations
-https://developers.facebook.com/docs/apps/versions
-https://cloud.google.com/blog/products/api-management/restful-api-design-tips-versioning
+## Resources:
+- https://zapier.com/engineering/api-geriatrics/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410
+- https://developers.facebook.com/docs/graph-api/changelog/4-30-2019-endpoint-deprecations
+- https://developers.facebook.com/docs/apps/versions
+- https://cloud.google.com/blog/products/api-management/restful-api-design-tips-versioning
