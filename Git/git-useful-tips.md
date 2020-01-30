@@ -29,8 +29,10 @@ Use the below git command:
 `git commit -a -m "Placeholder for message"`
 
 ## Add a tag
-`git tag -a <tag-name> <commit-id>`
-`git push origin <tag-name>`
+```
+git tag -a <tag-name> <commit-id>
+git push origin <tag-name>
+```
 
 ## Delete a git tag
 ```
