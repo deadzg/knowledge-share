@@ -28,6 +28,10 @@ I want to add and commit the changed file in the repository in single command
 Use the below git command:
 `git commit -a -m "Placeholder for message"`
 
+## Add a tag
+git tag -a <tag-name> <commit-id>
+git push origin <tag-name>
+
 ## Delete a git tag
 ```
 git tag -d <tag_name>
