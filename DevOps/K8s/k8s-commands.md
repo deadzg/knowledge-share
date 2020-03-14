@@ -62,6 +62,12 @@ Eg:
 Eg:
 `echo -n 'password' | base64`
 
+- List secrets
+`kubectl get secrets`
+
+- Describe secret
+`kubectl describe secret <secret-name>`
+
 ## Namespace
 - Create namespace:
 From file: `kubectl create -f <namespace-def-yaml-file>`
