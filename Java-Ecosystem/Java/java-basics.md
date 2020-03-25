@@ -2,6 +2,10 @@
 - volatile: This makes a java variable to be stored in main memory rather than the CPU cache.
 - Future: represents result of async computation. Result can be obtained using method get when the computation is completed, blocking if necessary until it is ready.
 - Callable: It is similar to runnable object, but it can return any object and is able to throw exception
+- Boxing: Convert primitive type to corresponding reference type
+- Unboxing: Convert reference type to corresponding primitive type
+- Checked Exception : Comile time 
+- Unchecked Exception : Runtime
 
 ## Semaphores
 - Used for inter-thread communication
@@ -38,6 +42,10 @@ sem.release(); //unlock
     - return type
     - possible a list of exceptions
 - Eg: `(parameters) -> expression` or `(parameters) -> { statements; }`
+## Method references
+- `(args) -> ClassName.staticMethod(Args)` => `ClassName::staticMethod`
+- `(arg0, rest) -> arg0.instanceMethod(rest)` => `ClassName::instanceMethod` where arg0 is of type ClassName
+- `(args) -> expr.instanceMethod(args)` => `expr::instanceMethod`
 
 # Functional Interfaces
 - It specifies only one abstract method
@@ -55,5 +63,9 @@ sem.release(); //unlock
     - BiPredicate<L,R>
     - BiConsumer<T,U>
     - BiFunction<T,U,R>
+    - Runnable
+    - Callable
+- Use the primitive variations of the above fuctional interfaces when dealing with primitive values
+- None of the above functional interfaces allow for checked exceptions
 - @FunctionInterface : Good practice to annotate all the functional interfaces
 
