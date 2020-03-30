@@ -33,7 +33,7 @@ sem.release(); //unlock
 
 # Lambda Expressions
 - Anonymous functions
-- Can be passed an args to method
+- Can be passed as an args to method
 - It can be stored in a variable
 - It's not associated with a particular class
 - It comprises of:
