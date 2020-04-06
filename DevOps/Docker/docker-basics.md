@@ -54,3 +54,9 @@
 - Add containers to the create network: `docker network connect <network-name> <container-id>`
 
   - Eg: `docker network connect my-network 489936f4e16a`
+
+- Rename the image: `docker image tag <old-name>:<tag> <new-name>:<tag>`
+  - Eg: `docker image tag server:latest myname/server:latest`
+
+- Commit the state of container: `docker commit <container-id> <new-image-name>`
+  - Eg: `docker commit 3146e4e1c636 gpg-test-img`
