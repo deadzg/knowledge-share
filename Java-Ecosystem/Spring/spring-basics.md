@@ -100,6 +100,9 @@ Disadvantage: You can often have some crappy code where lots of mapping between 
 	It allows to map object in code to db tables. It can hide SQl from developers so they deal in java classes. It allows to load and save data magically.
 	Under the hood most JPA providers use JDBC to read and write from and to DB
 
+## Tips
+- As of Spring Framework 4.3, Spring does not require the @Autowired anotation if a target bean only defines one constructor.
+
 ## Ref
 - [1] https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
 
