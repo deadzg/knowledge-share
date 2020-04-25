@@ -6,6 +6,35 @@
 - Unboxing: Convert reference type to corresponding primitive type
 - Checked Exception : Comile time 
 - Unchecked Exception : Runtime
+- JDK, JRE, JVM:
+*JDK* : Java Development Kit
+	Software Development Environment for developing Java applications and applets
+	Comprises:
+JRE
+Interpreter/Loader
+Compiler : Javac
+Jar archiver : jar
+Documentation Generator : Javadoc
+JRE + Development Tool
+
+*JRE* : Java Runtime Environment
+	It provides minimum requirements for executing a Java application
+	Comprises:
+Java virtual Machine
+Core classes
+Supporting files
+JVM + Library classes
+
+*JVM* : Java Virtual Machine
+	It is:
+Specification
+Implementation
+Runtime instance
+
+- How many instances of JVM per java application?
+Each application will get it’s own JVM instance and each JVM instance will be independent of each other
+Common scenario: A single application server such as Glassfish or Tomcat running multiple web apps, thus they share a JVM
+
 
 ## Semaphores
 - Used for inter-thread communication
