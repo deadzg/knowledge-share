@@ -47,8 +47,17 @@ Spring provides various ways to override the default application context propert
 - Java system properties
 - Operating system variables
 - application.properties files
-
 *Note*: `application.properties` has the lowest precendence
+
+## Logging
+Spring Boot 2.1 onwards supports the logging groups. For this declare the group via `logging.group` configuration property
+
+Then apply the logging level to the group at one shot.
+
+Eg:
+Create a logging group dao: `logging.group.dao=com.smalwe.dao, com.smalwe.repo`
+
+Set the log level of group dao to info: `logging.level.dao=DEBUG`
 
 ## JPA
 - Java Persistence API
@@ -98,5 +107,5 @@ Disadvantage: You can often have some crappy code where lots of mapping between 
 
 - [3] https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox/
 - [4] https://www.baeldung.com/spring-cloud-bootstrap-properties
-
+- [5] https://www.baeldung.com/spring-boot-log-groups
 
