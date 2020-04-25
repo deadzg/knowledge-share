@@ -38,6 +38,17 @@ Eg: If spring-data-jpa and spring-jdbc is in classpath, then it automatically tr
 - @PathVariable: Bind a path variable with method param
 - ResponseEntity :is meant to represent the entire HTTP response. You can control anything that goes into it: status code, headers, and body
 
+## Configuration
+Spring provides various ways to override the default application context properties ie. via:
+- Code
+- CLI arguments
+- Servlet Config Init params
+- ServletContext Init params
+- Java system properties
+- Operating system variables
+- application.properties files
+
+*Note*: `application.properties` has the lowest precendence
 
 ## JPA
 - Java Persistence API
@@ -81,10 +92,11 @@ Disadvantage: You can often have some crappy code where lots of mapping between 
 	Under the hood most JPA providers use JDBC to read and write from and to DB
 
 ## Ref
-- https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
+- [1] https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
 
-- https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different
+- [2] https://stackoverflow.com/questions/11881548/jpa-or-jdbc-how-are-they-different
 
-- https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox/
+- [3] https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox/
+- [4] https://www.baeldung.com/spring-cloud-bootstrap-properties
 
 
