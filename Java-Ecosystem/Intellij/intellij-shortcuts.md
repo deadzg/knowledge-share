@@ -7,3 +7,9 @@
 
 ## Unmark folder as source
 - Right click on source folder -> Mark Directory As -> Unmark as Sources Root
+
+## Convert existing non maven project to maven
+- Right click on project folder -> Add Framework Support -> Select Maven
+
+## Generate getters ans setters:
+- Command + N

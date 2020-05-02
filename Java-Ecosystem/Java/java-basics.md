@@ -98,3 +98,6 @@ sem.release(); //unlock
 - None of the above functional interfaces allow for checked exceptions
 - @FunctionInterface : Good practice to annotate all the functional interfaces
 
+## Optimizing 
+- Reduce application startup time using compile-time code generation in replacement of runtime introspection. 
+- Ahead-of-Time compilation of the resulting bytecode to native code reduces startup time, as well as memory consumption.
