@@ -21,6 +21,8 @@
 				- Hash based message authentication (HMAC)
 				- JWT
 				- OAuth 2.0 Bearer authentication token
+		- SAML
+		- Open ID Connect
 		- OAuth2
 			- Grant types 
 				- Client Credentials
