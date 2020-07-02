@@ -13,3 +13,6 @@
 
 ## Generate getters ans setters:
 - Command + N
+
+## Change Java Version
+- Navigate to File -> Project Structure
