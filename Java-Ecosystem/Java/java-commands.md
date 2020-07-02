@@ -12,11 +12,13 @@ Eg: `brew cask install adoptopenjdk11`
 
 # Change JDK
 Copy the below code in .bash_profile
-```jdk() {
+```
+jdk() {
         version=$1
         export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         java -version
- }```
+ }
+ ```
 
  `source ~/.bash_profile`
 
