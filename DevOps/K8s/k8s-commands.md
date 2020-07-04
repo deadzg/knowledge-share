@@ -14,6 +14,17 @@ Eg:
  - Create a pod from file
 `kubectl create -f <file-name>`
 
+- SSH into a pod
+`kn exec -it <pod-name> sh`
+`kn exec -it <pod-name> bash`
+Eg:
+`kn exec -it order-deployment-7dd69696ff-tgw7m sh`
+
+- Run a curl command to test internal rest endpoints in pod
+`kubectl run <pod-name> --image=radial/busyboxplus:curl -i --tty`
+Eg:
+`kubectl run curl-smalwe --image=radial/busyboxplus:curl -i --tty`
+
 ## Deployment
 - Edit a deployment:
 `kubectl edit deployment <deployment-name>`
