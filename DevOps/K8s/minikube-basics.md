@@ -21,3 +21,12 @@ Set image pull policy to never in deployment yaml file:
 `imagePullPolicy: Never`
 
 https://medium.com/bb-tutorials-and-thoughts/how-to-use-own-local-doker-images-with-minikube-2c1ed0b0968
+
+## Track minikube system resources
+`minikube ssh`
+
+## Set config in minikube
+- Get list of config: `minikube config`
+- Set specific property: `minikube config set <key> <value>`
+Eg:
+`minikube config set cpus 4`
