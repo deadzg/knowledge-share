@@ -17,6 +17,8 @@
 - Ungroup the elements in the component
 - Select the colors in the color pallettes (to make it consistent across)
 - Keep 3-4 font sizes across the website. Generally 16px, 24px, 10px
+- Get fake text from lipsum.com
+- Get free images from : https://unsplash.com/ ,https://pixels.com/, https://www.freeimages.com/
 
 ## Keyboard Shortcuts
 Zoom In/Zoom out: `Cmd  +/-`
