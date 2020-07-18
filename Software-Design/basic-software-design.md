@@ -21,3 +21,17 @@
 - Performance
 - Integration Tests
 - Unit Tests
+
+## Design Priciples (SOLID)
+
+### SRP : Single Responsibility Principle
+- A module should be responsible for one and only one actor ie. it should have on and only one reason to change
+- At code level it is about functions and classes
+- At component level it becomes `Common Closure Principle (CCP)`
+- At architectural level it becomes `Axis of Change` responsible for creation of architectural boundaries
+
+
+### OCP : Open Closed Principle
+### LSP : Liskov Substitution Principle
+### ISP : Interface Segregation Principle
+### DIP : Dependency Inversion Principle
