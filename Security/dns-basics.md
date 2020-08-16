@@ -14,4 +14,6 @@
 - A CNAME record cannot co-exist with another record for the same name. It’s not possible to have both a CNAME and TXT record for www.abc.com
 - A CNAME can point to another CNAME, although this configuration is generally not recommended for performance reasons
 
-- Nameservers
+### Nameservers
+- Nameservers are part of a large database called the Domain Name System (DNS), which acts like a directory for devices and the IP addresses attached to them
+- You simply type in a URL, the nameserver lets your browser know where that website is located, and the desired page loads
