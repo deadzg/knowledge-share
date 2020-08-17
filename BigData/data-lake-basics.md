@@ -22,3 +22,8 @@ A data swamp is a data pond that has grown to the size of a data lake but failed
 
 ## Fingerprinting
 The tool crawls through all the structured data in the enterprise, adding a unique identifier to each field, and as fields get annotated or tagged by analysts, it looks for similar fields and suggests tags for them.
+
+## Logical Datalake
+- Store data that is not stored anywhere else in the data lake.
+- Bring data that is stored in other systems into the data lake if and when it is needed, and keep it in sync while it is needed.
+- Bring each data set in only once for all users.

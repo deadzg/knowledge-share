@@ -11,7 +11,7 @@
 - DL users are mostly data scientist. DW users are mostly business professionals
 - DL :  Data is highly available and quick to update.  DW: More complicated and costly to make changes
 
-## Components Involved
+## Components/Technologies Involved
 - Kafka
 - Spark
 - Hadoop
@@ -27,6 +27,19 @@
 - ETL
 - NoSQL
 - S3
+- Columnar Databases : Redshift
+- Data Virtualization Tools
+- Data Warehouse
+- Data Quality Tools: Informatica DQ, SAS Dataflux, IBM Information Analyzer
+- Data Profiling Tools
+- Master Data Management (MDM) Tools:IBM, Oracle, Informatica, Tamr
+- Data Modelling Tools:Erwin, IBM Infosphere
+- Metadata Repositories: technical metadata (data about data) across the data assets. IBM, Informatica, ASG Rochade
+- Data Governance Tools : 
+    - Access control and sensitive data regulatory compliance:PCI, HIPPA, GDPR, Basel III
+    - Data lifecycle management
+    - Data quality management
+    - Documentation and Metadata management
 
 
 
