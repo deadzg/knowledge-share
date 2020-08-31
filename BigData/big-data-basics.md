@@ -13,17 +13,21 @@
 
 ## Components/Technologies Involved
 - Kafka
-- Spark
+- Spark : An in­memory execution system
 - Hadoop
-- Hive
-- Pig
+- Hive : A SQL­like interface to Hadoop files
+- Pig : Scripting
 - Visualization Platform: Arcadia Data, AtScale
 - HDFS
 - HBase
 - MapReduce
-- Yarn
-- Oozie
+- Yarn : A distributed resource manager
+- Oozie : A workflow system
 - Scoop
+- Flume
+- HBase
+- Ranger
+- Atlas
 - ETL
 - NoSQL
 - S3
