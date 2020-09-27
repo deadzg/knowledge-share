@@ -1,0 +1,14 @@
+## Quality Attributes of a Software Architecture
+- Availability
+- Interoperability
+- Modifiability
+- Performance
+- Security
+- Testability
+- Usability
+- Variability
+- Portability
+- Scalability
+- Deployability
+- Mobility
+- Monitorability
