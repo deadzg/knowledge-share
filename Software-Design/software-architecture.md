@@ -1,5 +1,5 @@
 # Basics
-Core factors to be considered
+Quality Attributes of an Architecture:
 - Scalability : Ability to scale when the load increases
 - Reliability : Ability to prevent and quickly recover from failure
 - Security : Protecting information and systems
@@ -9,6 +9,16 @@ Core factors to be considered
 - Performance Efficiency : Using IT and computing resources efficiently.
 - Cost Optimization : Avoiding unnecessary costs
 - Highly Available(HA) : 
+- Interoperability
+- Modifiability
+- Usability
+- Variability
+- Portability
+- Mobility
+- Monitorability
+
+## Why Architecture is important
+https://martinfowler.com/bliki/DesignStaminaHypothesis.html
 
 ## Documenting Software Architectures by Bass 
 4+1 View Model of Software Architecture
@@ -58,4 +68,6 @@ In such cases prepare for partial failure scenarios:
 - https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/wellarchitected-financial-services-industry-lens.pdf
 - TOGAF : https://pubs.opengroup.org/architecture/togaf9-doc/arch/?ref=wellarchitected-wp
 - Zackman Framework : https://www.zachman.com/about-the-zachman-framework?ref=wellarchitected-wp
-- 
+- https://medium.com/@nvashanin/quality-attributes-in-software-architecture-3844ea482732
+- Book: Software Architecture in Practice
+- https://www.youtube.com/watch?v=v_nhv6aY1Kg&ab_channel=GOTOConferences

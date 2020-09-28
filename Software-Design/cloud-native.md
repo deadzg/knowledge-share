@@ -26,7 +26,7 @@ These techniques enable loosely coupled systems that are resilient, manageable, 
 - Strictly separate build, release and run stages
 - Build stage: Converts code repo into executable bundle known as build
 - Release stage: Takes the build produced and combines it with deploy's current config
-- Run stage: Runs the app in the execution env by launching some set of apps processes agains a selected release
+- Run stage: Runs the app in the execution env by launching some set of apps processes against a selected release
 
 ### Processes
 - Processes should be stateless ie. microservice should not assume any data to be in memory before or after it executes an operation
