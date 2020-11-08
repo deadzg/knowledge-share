@@ -6,4 +6,8 @@ A stream app leverages Consumer and Producer API
     - Consumern group.id = application.id
     - Default client.id prefix
     - Prefix to internal changelog topics
-- default[key|value].serde    
+- default[key|value].serde
+
+## Best Practices
+- Always print the topology of the stream using `<streamName>.toString()`
+- Close the application gracefully
