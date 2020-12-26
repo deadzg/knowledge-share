@@ -1,4 +1,4 @@
-# List all versions of Java in Mac
+# List all versions of JVM in Mac
 `/usr/libexec/java_home -V`
 
 # Find location of specific version of Java
