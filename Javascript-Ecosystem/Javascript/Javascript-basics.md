@@ -110,11 +110,11 @@ Though it may not seem obvious from the first syntax, foo is basically just a va
 **window**
 
 - A global variable, `window`, represents the window in which the script is running, is exposed to JavaScript code.
-- Refer https://www.w3schools.com/jsref/obj_window.asp for window object properties and functions. Alternatively, you could type *window* in the console and you can see the same.
+- Refer https://developer.mozilla.org/en-US/docs/Web/API/Window for window object properties and functions. Alternatively, you could type *window* in the console and you can see the same.
 - Any variables and functions defined in this scope are global and accessible everywhere.
-- window.document property points to the DOM document loaded in that window. Refer https://www.w3schools.com/jsref/dom_obj_document.asp for the document object properties and functions.
+- window.document property points to the DOM document loaded in that window. Refer https://developer.mozilla.org/en-US/docs/Web/API/Window/document for the document object properties and functions.
 
-### Scope ()
+### Scope
 - Two types of scope. Global and Local.
 - Scope in a programming language controls the visibility and lifetimes of variables and parameters.
 - Variables inside the Global scope can be accessed and altered in any other scope.
