@@ -121,7 +121,14 @@ sem.release(); //unlock
 
 - If available permits are over and the acquire is called, the thread gets blocked until the release() is called. Thus locks serves better in certain scenarios
 
-  
+# Remainder Operator (%)
+In Java `%` is the remainder operator unlike in Python which is a modulo operator
+Key difference: Modulus is always the same sign as the divisor and remainder the same sign as the quotient.
+Eg:
+Remainder -> -3 % 2 = -1
+Modulus   -> -3 % 2 = 1
+
+For using Modulus in Java: `Math.floorMod(-3,2)`
 
 # Lambda Expressions
 

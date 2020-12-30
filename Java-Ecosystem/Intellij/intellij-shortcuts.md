@@ -16,3 +16,6 @@
 
 ## Change Java Version
 - Navigate to File -> Project Structure
+
+## Jump back to previous file
+Ctrl+Tab (switch to the last (most recent) tab
