@@ -167,14 +167,32 @@ console.log(a);
 - Variables declared with "let" and "const" are moved to the top of its enclosing scope but are now initialized.
 
 ### Closures
+- Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
+- Closure is associated with an instance of a function, rather than its single lexical definition.
+```
+for(var i=0; i<10; i++) {
+  (function() {
+    var j=i;
+    setTimeout(function timer() {
+      console.log(j);
+    }, j*1000);
+  })();
+}
+
+for(let i=0; i<10; i++) {  
+  setTimeout(function timer() {
+    console.log(i);
+  }, i*1000);
+}
+```
+
+### Module Pattern
 
 ### Event loop
 
 ### Prototype
 
 ### this binding
-
-### Module Pattern
 
 ### Execution Context
 - Execution stack, is a stack with a LIFO (Last in, First out) structure, which is used to store all the execution context created during the code execution.
