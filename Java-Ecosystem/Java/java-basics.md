@@ -16,6 +16,7 @@
 
 - `try-with-resources`: The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource. 
 
+- `shallow copy`: New copy of the object is created but the object contained inside the main object points to the older reference. This means any change in the contaning object will change the cloned object.
   
 
 ## JDK, JRE, JVM:
