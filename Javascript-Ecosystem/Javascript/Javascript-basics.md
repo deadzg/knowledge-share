@@ -138,16 +138,6 @@ console.log(add());
 ```
 - Before ECMAScript 6, JavaScript only had function scope. Currently, variables declared with "let" and "const" has block scope.
 
-### IIFE (Immediately Invoked Function Expressions)
-An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
-It is a design pattern which is also known as a Self-Executing Anonymous Function and contains two major parts:
-
-- The first is the anonymous function with lexical scope enclosed within the Grouping Operator (). This prevents accessing variables within the IIFE as well as polluting the global scope.
-- The second part creates the immediately invoked function expression () through which the JavaScript engine will directly interpret the function.
-
-```
-```
-
 ### Hoisting
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 ```
@@ -186,7 +176,172 @@ for(let i=0; i<10; i++) {
 }
 ```
 
-### Module Pattern
+### Different coding patterns
+
+#### IIFE (Immediately Invoked Function Expressions)
+An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+It is a design pattern which is also known as a Self-Executing Anonymous Function and contains two major parts:
+
+- The first is the anonymous function with lexical scope enclosed within the Grouping Operator (). This prevents accessing variables within the IIFE as well as polluting the global scope.
+- The second part creates the immediately invoked function expression () through which the JavaScript engine will directly interpret the function.
+
+```
+(function() {
+...  
+}) ()
+```
+
+#### Constructor pattern
+```
+// we define a constructor for Person objects
+function Person(name, age, isDeveloper) {
+    this.name = name;
+    this.age = age;
+    this.isDeveloper = isDeveloper || false;
+
+    this.writesCode = function() {
+      console.log(this.isDeveloper? "This person does write code" : "This person does not write code");
+    }
+}
+
+// creates a Person instance with properties name: Bob, age: 38, isDeveloper: true and a method writesCode
+var person1 = new Person("Bob", 38, true);
+// creates a Person instance with properties name: Alice, age: 32, isDeveloper: false and a method writesCode
+var person2 = new Person("Alice", 32);
+
+// prints out: This person does write code
+person1.writesCode();
+// prints out: this person does not write code
+person2.writesCode();
+```
+
+- The problem with this approach is that the method writesCode gets redefined for each of the instances of the Person constructor. We can avoid this by setting the method into the function prototype.
+
+#### Prototype pattern
+Anything on the prototype is only in memory once.
+
+```
+// we define a constructor for Person objects
+function Person(name, age, isDeveloper) {
+    this.name = name;
+    this.age = age;
+    this.isDeveloper = isDeveloper || false;
+}
+
+// we extend the function's prototype
+Person.prototype.writesCode = function() {
+    console.log(this.isDeveloper? "This person does write code" : "This person does not write code");
+}
+
+// creates a Person instance with properties name: Bob, age: 38, isDeveloper: true and a method writesCode
+var person1 = new Person("Bob", 38, true);
+// creates a Person instance with properties name: Alice, age: 32, isDeveloper: false and a method writesCode
+var person2 = new Person("Alice", 32);
+
+// prints out: This person does write code
+person1.writesCode();
+// prints out: this person does not write code
+person2.writesCode();
+```
+
+#### Module Pattern
+- It is used to define objects and specify the variables and the functions that can be accessed from outside the scope of the function.
+- The most useful thing that this pattern introduces is the clear separation of private and public parts of an object, which is a concept very similar to developers coming from a classical object-oriented background.
+
+```
+function jane() {
+  const name = 'jane';
+  const mid = 'A';
+  const final = 'B+';
+  return {
+    midtermScore: () => mid,
+    finaltermScore: () => final,
+  }
+}
+jane().midtermScore(); // A
+jane().finaltermScore(); // B+
+```
+
+```
+/ through the use of a closure we expose an object
+// as a public API which manages the private objects array
+var collection = (function() {
+    // private members
+    var objects = [];
+
+    // public members
+    return {
+        addObject: function(object) {
+            objects.push(object);
+        },
+        removeObject: function(object) {
+            var index = objects.indexOf(object);
+            if (index >= 0) {
+                objects.splice(index, 1);
+            }
+        },
+        getObjects: function() {
+            return JSON.parse(JSON.stringify(objects));
+        }
+    };
+})();
+
+collection.addObject("Bob");
+collection.addObject("Alice");
+collection.addObject("Franck");
+// prints ["Bob", "Alice", "Franck"]
+console.log(collection.getObjects());
+collection.removeObject("Alice");
+// prints ["Bob", "Franck"]
+console.log(collection.getObjects());
+```
+
+#### Revealing Module pattern
+```
+// we write the entire object logic as private members and
+// expose an anonymous object which maps members we wish to reveal
+// to their corresponding public members
+var namesCollection = (function() {
+    // private members
+    var objects = [];
+
+    function addObject(object) {
+        objects.push(object);
+    }
+
+    function removeObject(object) {
+        var index = objects.indexOf(object);
+        if (index >= 0) {
+            objects.splice(index, 1);
+        }
+    }
+
+    function getObjects() {
+        return JSON.parse(JSON.stringify(objects));
+    }
+
+    // public members
+    return {
+        addName: addObject,
+        removeName: removeObject,
+        getNames: getObjects
+    };
+})();
+
+namesCollection.addName("Bob");
+namesCollection.addName("Alice");
+namesCollection.addName("Franck");
+// prints ["Bob", "Alice", "Franck"]
+console.log(namesCollection.getNames());
+namesCollection.removeName("Alice");
+// prints ["Bob", "Franck"]
+console.log(namesCollection.getNames());
+```
+
+#### Using ES6 class with import and export
+In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 ### Event loop
 
