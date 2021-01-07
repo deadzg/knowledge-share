@@ -5,7 +5,7 @@
 - JS is both **dynamically typed** (infer variable types at runtime) and **weakly typed**(allow types to be inferred as another type).
 - Javascript is single threaded language so it can only execute a single task at a time.
 - Is JavaScript an interpreted language or a compiled language? With modern browsers, it depends on the browser engine. A nice introduction on youtube https://www.youtube.com/watch?v=dIu_C5Akino&list=PLv4QGK2Lb0hdE3oVRHFM-OMWtmW3qw8L5&index=1
-- Javascript is an implementation of ECMAScript standard. ES6(ECMAScript 2015) is the current version.
+- Javascript is an implementation of ECMAScript standard. ES6(ECMAScript 2020) is the current version. https://en.wikipedia.org/wiki/ECMAScript
 
 ### Data types
 Following are the primitive types:
@@ -338,16 +338,167 @@ namesCollection.removeName("Alice");
 console.log(namesCollection.getNames());
 ```
 
-#### Using ES6 class with import and export
-In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+#### Using ES6 module with import and export
+- You can export any top-level function, class, var, let, or const.
+- ES6 modules are automatically strict-mode code, even if you don’t write "use strict"; in them.
+- You can use import and export in modules.
+- You don’t have to put everything in an IIFE or a callback. Since the code is a module, not a script, all the declarations will be scoped to that module, not globally visible across all scripts and modules.
+- When you run a module containing an import declaration, the modules it imports are loaded first, then each module body is executed in a depth-first traversal of the dependency graph, avoiding cycles by skipping anything already executed.
+- Reference - https://hacks.mozilla.org/2015/08/es6-in-depth-modules/
+
+```
+export function detectCats(canvas, options) {
+  var kittydar = new Kittydar(options);
+  return kittydar.detectCats(canvas);
+}
+
+export class Kittydar {
+  ... several methods doing image processing ...
+}
+
+// This helper function isn't exported.
+function resizeCanvas() {
+  ...
+}
+```
+```
+import {detectCats, Kittydar} from "kittydar.js";
+```
+
+### this binding
+- In most cases, the value of this is determined by how a function is called (runtime binding).
+- It can't be set by assignment during execution, and it may be different each time the function is called.
+- You can use call and apply methods to set the value for this.
+- ES5 introduced the bind() method to set the value of a function's this regardless of how it's called.
+- ES6(ES2015) introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+
+```
+// Create obj with a method bar that returns a function that
+// returns its this. The returned function is created as
+// an arrow function, so its this is permanently bound to the
+// this of its enclosing function. The value of bar can be set
+// in the call, which in turn sets the value of the
+// returned function.
+var obj = {
+  bar: function() {
+    var x = (() => this);
+    return x;
+  }
+};
+
+// Call bar as a method of obj, setting its this to obj
+// Assign a reference to the returned function to fn
+var fn = obj.bar();
+
+// Call fn without setting this, would normally default
+// to the global object or undefined in strict mode
+console.log(fn() === obj); // true
+
+// But caution if you reference the method of obj without calling it
+var fn2 = obj.bar;
+// Calling the arrow function's this from inside the bar method()
+// will now return window, because it follows the this from fn2.
+console.log(fn2()() == window); // true
+```
 
 Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+### AJAX (Asynchronous JavaScript And XML)
+- AJAX’s most appealing characteristic is its "asynchronous" nature, which means it can communicate with the server, exchange data, and update the page without having to refresh the page.
+- It can send and receive information in various formats, including JSON, XML, HTML, and text files.
+
+Following are the different ways to make asynchronous request:
+
+#### Using XMLHttpRequest object
+- Reference - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+#### Using promises with XMLHttpRequest object
+- A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+- Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+- One of the great things about using promises is chaining.
+- Reference - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+```
+let request = obj => {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(obj.method || "GET", obj.url);
+        if (obj.headers) {
+            Object.keys(obj.headers).forEach(key => {
+                xhr.setRequestHeader(key, obj.headers[key]);
+            });
+        }
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () => reject(xhr.statusText);
+        xhr.send(obj.body);
+    });
+};
+
+request({url: "employees.json"})
+    .then(data => {
+        let employees = JSON.parse(data);
+        let html = "";
+        employees.forEach(employee => {
+            html += `
+                <div>
+                    <img src='${employee.picture}'/>
+                    <div>
+                        ${employee.firstName} ${employee.lastName}
+                        <p>${employee.phone}</p>
+                    </div>
+                </div>`;
+        });
+        document.getElementById("list").innerHTML = html;
+    })
+    .catch(error => {
+        console.log(error);
+    });
+```
+#### Using fetch API
+- The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.
+- This kind of functionality was previously achieved using XMLHttpRequest.
+- Reference - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+```
+//Say we wanted to fetch a URL and log the response as text. Here's how it looks using promises:
+function logFetch(url) {
+  return fetch(url)
+    .then(response => response.text())
+    .then(text => {
+      console.log(text);
+    }).catch(err => {
+      console.error('fetch failed', err);
+    });
+}
+```
+
+#### Using async and await
+- Async functions are enabled by default in Chrome 55 and they're quite frankly marvelous. They allow you to write promise-based code as if it were synchronous, but without blocking the main thread. They make your asynchronous code less "clever" and more readable.
+- If you use the async keyword before a function definition, you can then use await within the function. When you await a promise, the function is paused in a non-blocking way until the promise settles. If the promise fulfills, you get the value back. If the promise rejects, the rejected value is thrown.
+- Reference: https://developers.google.com/web/fundamentals/primers/async-functions
+
+```
+async function logFetch(url) {
+  try {
+    const response = await fetch(url);
+    console.log(await response.text());
+  }
+  catch (err) {
+    console.log('fetch failed', err);
+  }
+}
+```
+
+- It's the same number of lines, but all the callbacks are gone. This makes it way easier to read, especially for those less familiar with promises.
 
 ### Event loop
 
 ### Prototype
-
-### this binding
 
 ### Execution Context
 - Execution stack, is a stack with a LIFO (Last in, First out) structure, which is used to store all the execution context created during the code execution.
@@ -356,5 +507,5 @@ Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Ope
 - The execution context is created in two phases: 1) Creation Phase and 2) Execution Phase.
 - Refer https://blog.bitsrc.io/understanding-execution-context-and-execution-stack-in-javascript-1c9ea8642dd0#:~:text=Simply%20put%2C%20an%20execution%20context,run%20inside%20an%20execution%20context.
 
-### AJAX
+
 https://jsonplaceholder.typicode.com/todos
