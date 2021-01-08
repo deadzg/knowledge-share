@@ -496,6 +496,22 @@ async function logFetch(url) {
 
 - It's the same number of lines, but all the callbacks are gone. This makes it way easier to read, especially for those less familiar with promises.
 
+### Event Bubbling and Capturing
+- **Bubbling** - When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+- Almost all events bubble. For instance, a focus event does not bubble. But still it’s an exception, rather than a rule, most events do bubble.
+- The standard DOM Events describes 3 phases of event propagation:
+Capturing phase – the event goes down to the element.
+Target phase – the event reached the target element.
+Bubbling phase – the event bubbles up from the element.
+- Reference - https://javascript.info/bubbling-and-capturing
+
+### Event delegation
+- Capturing and bubbling allow us to implement one of most powerful event handling patterns called event delegation.
+- The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
+- In the handler we get event.target to see where the event actually happened and handle it.
+- The HTML structure is flexible, we can add/remove buttons at any time.
+- Reference - https://javascript.info/event-delegation
+
 ### Event loop
 
 ### Prototype
