@@ -60,18 +60,38 @@ Shorthand Properties
 * Properties with four values go clockwise from top
 
 Relative Units
+* One of the most familiar and probably easiest to work with, is pixels. These are known as absolute units i.e. 5px always means the same thing. Other units such as em and rem are not absolute, but relative. The value of relative units changes based on external factors.
+* As the user resizes the browser window, your css needs to adjust. This means that the styles can't be applied when you create the page; the browser must calculate them. We need to begin thinking about responsive design.
+* Values declared using relative units are evaluated by the browser to an absolute value, called the "computed value".
 * Ems
-    * 1 em => font-size of current element
-    * It exact value varies depending on the element you are applying to
-    * Convenient for: padding, height, width, border-radius
-    * Default font-size in chrome: 16px
+    * 1 em means the font-size of the current element.
+    * It exact value varies depending on the element you are applying it to.
+    * Convenient for: padding, height, width, border-radius.
+    * Default font-size for most browsers is 16px.
+```
+box {
+  padding: 1em;
+  border-radius: 1em;
+  background-color: lightgray;
+}
+.box-small {
+  font-size: 12px;
+}
+.box-large {
+  font-size: 18px;
+}    
+```
+* Using ems to define font-size
+    * font-size ems are derived from the inherited font-size.
 * Rems
-    * Rem is short for root em. 
+    * When the browser parses an HTML document, it creates the representation in memory called DOM(tree structure).
+    * Root node is the ancestor of all the elements in the document. It has a special pseudo-class selector ":root".
+    * ":root" is equivalent to the type selector "html".
+    * Rem is short for root em.
     * Instead of being relative to current element, rems are relative to the root element
-    * Root element is the <html> tag which browser knows when it creates the DOM
     * It can be specified using psuedo class eg.     :root {font-size:1em} It wil take browser default ie. 16px.      ul {font-size: .8 rem}
 * Best Practice: Use rems for font-sizes, pixels for borders; Use ems paddings, margins and border-radius
-* Anti-pattern: Reset font size at page’s root eg: html {font=size: .625em}. It sets the default font-size from 16 * 0.625 px  = 10 px. People do it for easier calculation. Two drawbacks: 1) 10px is too small and we may end up writing more font-size for different tags . 2) You are still thinking in terms of pixels
+* Anti-pattern: Reset font size at page’s root eg: html {font-size: .625em}. It sets the default font-size from 16 * 0.625 px  = 10 px. People do it for easier calculation. Two drawbacks: 1) 10px is too small and we may end up writing more font-size for different tags . 2) You are still thinking in terms of pixels
 
 Viewport-relative units
 * Viewport: The framed area in the browser window where the web page is visible
@@ -80,6 +100,10 @@ Viewport-relative units
     * vmin : 1/100th of the smaller dimension, height or width
     * vmax: 1/100th of the larger dimension height or width
 * Calc
+    * The calc() function lets you do basic arithmetic with two or more values.
+    * This is par- ticularly useful for combining values that are measured in different units.
+    * This function supports addition (+), subtraction (-), multiplication (*) and division (/).
+    * The operators must be surrounded by whitespace.
     * Eg.  :root {font-size: calc(0.5em + 1vw)}
 
 Unitless numbers and line-height
@@ -102,26 +126,26 @@ Custom Properties (CSS Variables)
 Mastering the Box Model
 * Best Practice: For some site designs, the background color of several containers might be transparent. When this is the case, it might be helpful to temporarily apply a background color to the container until you get it sized and positioned accordingly
 * Default behaviour of box-model: When you are setting width/height of its content; any padding, border and margins are then added to that width
-* 
+*
 * In order to override the above behaviour:  box-sizing: border-box instead of content-box. With this model, padding doesn’t make an element wider; it makes the innter content narrower. content + padding + border
 * * => universal selector  eg. * {box-sizing: border-box}
 * In order to apply any style to all elements + psuedo elements of all types eg: *, ::before, :: after {box-sizing: border-box} . With this css, if you are using third party components with their own css, you may see some broken layout if the CSS wasn’t writted with this fix in mind. To fix this. :root {box-sizing: border-box} *,::before, ::after {box-sizing: inherit} .third-party-component {box-sizing: content-box}
 * Normal document flow refers to the default layout behaviour of elements on the page. Inline elements flow along with the text of the page, from left to right, line wrapping when they reach the edge of their container. Block-level elements fall on individual lines, with a line break above and below
 * When the height of an element is explicitly set, you run the risk of it's content overflowing the container
-* Overflow behaviour: 
+* Overflow behaviour:
     * visible (default value) : All content visible, even when it overflows container's edge
     * hidden : Content that overflows the container's padding edge is clipped and won't be visible
     * scroll : Scrollbars are added to the containers so the user can scroll to see the remaining content
     * auto : Scrollbars are added to the container only if the contents overflow
-* Best Practice: Prefer auto over scroll,as we don't want to show scrollbars unnecessarily 
+* Best Practice: Prefer auto over scroll,as we don't want to show scrollbars unnecessarily
 * Control horizontal overflow using overflow-x . Use case: long URL   
 * Control verticle overflow using overflow-y
 * Bad Practice : Explicitly setting both x and y to different values tends to have unpredictable results
 * Bad Practice: Never specify height in percentage. Reason: Percentage refers to the size of element's containing block; the height of that container is determined by the height of its children. This produces a circular definition that the browser cannot resolve, so it will ignore the declaration. For this to work, the parent must have an explicit height.
 * Use cases: Container to fill the screen. Use vh units ie. 100vh  =>height of the viewport
-* Use case: Create columns of equal height 
+* Use case: Create columns of equal height
     * Method 1: Parent of column display:table . By default the table won't expand to 100% width like a block element, so we need to declare width explictly to 100%.  Each column display:table-cell with the required width percentage. Use border-spacing to give margin as the table-cell doesnot respect margin
-    * Method 2: **Using Flexbox** -> 
+    * Method 2: **Using Flexbox** ->
         * Using flexbox produces elements of equal height
         * Best Practice: Favor the use of flexbox instead of table layout if you aren't actively supporting IE9 or older
         * Give parent container display: flex

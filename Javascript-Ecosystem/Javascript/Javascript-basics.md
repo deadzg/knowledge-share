@@ -514,6 +514,9 @@ Bubbling phase – the event bubbles up from the element.
 
 ### Event loop
 
+### Webpack and babel
+- Reference - https://www.loginradius.com/blog/async/write-a-javascript-library-using-webpack-and-babel/
+
 ### Prototype
 
 ### Execution Context
