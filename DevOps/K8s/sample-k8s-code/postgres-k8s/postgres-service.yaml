@@ -1,0 +1,12 @@
+# Source: https://contentlab.io/postgresql-on-kubernetes/
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-postgres-loadbalancer
+spec:
+  selector:
+    app: my-postgres-db
+  type: NodePort
+  ports:
+    - port: 5432
+      targetPort: 5432

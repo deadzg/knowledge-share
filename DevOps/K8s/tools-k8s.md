@@ -1,3 +1,12 @@
+# KubeNS
+Install Kubens : `brew install kubectx`
+
+# Kind: Tool to setup K8s cluster locally (Alternative to minikube)
+https://kind.sigs.k8s.io/docs/user/quick-start/
+
+Install Kind: `brew install kind`
+Create cluster: `kind create cluster --name kind-2`
+
 # Basics Minikube
 
 ## Start minikube
