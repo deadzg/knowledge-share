@@ -24,12 +24,12 @@
 		- SAML
 		- Open ID Connect
 		- OAuth2
-			- Grant types 
-				- Client Credentials
-				- Authorization Code:
-					- Three legged OAuth
-				- Implicit
-				- Password
+			- Client Credentials (Usecase: Machine to Machine communication)
+			- OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens
+			- Authorization Codeflow with Proof Key for Code Exchange(PKCE)
+			- Authorization Code - Three legged OAuth
+			- Implicit
+			- Password
 			- Scope
 			- Expiry Time
 			- Access Token, Refresh Token, ID Token	
