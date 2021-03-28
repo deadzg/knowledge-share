@@ -6,7 +6,10 @@ https://kind.sigs.k8s.io/docs/user/quick-start/
 
 Install Kind: `brew install kind`
 Create cluster: `kind create cluster --name kind-2`
-
+Create cluster with custom config: `kind create cluster --name my-cluster --config=config.yaml`
+https://kind.sigs.k8s.io/docs/user/configuration/
+List kind cluster: `kind get clusters`
+Delete kid cluster: `kind delete cluster --name kind`
 # Basics Minikube
 
 ## Start minikube

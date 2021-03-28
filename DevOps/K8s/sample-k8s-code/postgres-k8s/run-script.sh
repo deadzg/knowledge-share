@@ -1,4 +1,4 @@
-#!bin/bash
+#!bin/sh
 
 echo "Starting the postgres setup in k8s cluster..."
 kubectl apply -f postgres-namespace.yaml
