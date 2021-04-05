@@ -106,7 +106,7 @@ Eg:
 Ref: https://medium.com/google-cloud/kubernetes-110-your-first-deployment-bf123c1d3f8
 Env : Google Cloud Platform
 
-
+- Delete all resources from a namespace: `kubectl delete all --all -n <namespace>`
 =====Create namespace=====
 kubectl create -f k8s-sample-json/namespace-vault.json
 
