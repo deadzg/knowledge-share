@@ -1,5 +1,9 @@
 # Istio Basics
 
+- The `proxy-status` command allows you to get an overview of your mesh and identify the proxy causing the problem
+- Then `proxy-config` can be used to inspect Envoy configuration and diagnose the issue.
+
+https://istio.io/latest/docs/ops/diagnostic-tools/proxy-cmd/
 ## Commands
 - Download: `curl -L https://istio.io/downloadIstio | sh -`
 - Install: `istioctl manifest apply --set profile=demo`
@@ -8,6 +12,10 @@
 - Verify all the pods are up: `kubectl get pods -n istio-system`    
 - List istio profile: `istioctl profile list`
 - Check profile configuration: `istioctl profile dump <profile_name>`
+- Check All the Envoy Proxy Status: `istioctl proxy-status`
+- Get envoy proxy config: `istioctl proxy-config cluster <pod-name> [flags]`
+
+https://istio.io/latest/docs/ops/diagnostic-tools/istioctl/
 
 ## Kind Deployment
 https://istio.io/latest/docs/setup/platform-setup/kind/

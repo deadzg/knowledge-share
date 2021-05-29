@@ -160,6 +160,14 @@ There are four types of services in K8s:
  - ExternalName
  	- Maps the service to the contents of the external name field by returning a CNAME record with its value
 
+Headless service: 
+  - It doesnot loadbalance req like normal service
+  - It just creates a DNS entry to reach each pod using the pod name and the subdomain eg: podname.headless-servicename.namespace.svc.cluster-domain.example
+  Eg: my-pod-0.my-pod-headless.kafka.svc.cluster.local
+  - It's created like a normal service, but it doesnot have an ip of it's own
+  - Just specify ClusterIP: None in the normal service def to make it headless
+  - When creating a StatefulSet you need to specify serviceName option in the spec with the headless service name
+
 KNode : A worker node that participates in a k8s cluster is usually implemented as a virtual or physical host and it runs a Kubelet that communicates with the master node
 
 kube-apiserver : Is the primary component of the master node, it exposes a REST API that we can post k8s objects (that is, Pod, Deployment) to control the state of the cluster
