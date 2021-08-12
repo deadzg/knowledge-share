@@ -42,3 +42,6 @@ git push origin :refs/tags/<tag_name>
 
 ## Git diff with commit history for a given file
 `git log -p -- <file>`
+
+## Undo git add
+`git reset <dir>`

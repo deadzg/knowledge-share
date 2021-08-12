@@ -6,3 +6,5 @@
 - Correlate the events using a unique correlation ID
 - Format the message in a JSON (or any other preffered) format
 
+## Common Visualisations for Application Monitoring
+
