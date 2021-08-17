@@ -1,5 +1,7 @@
 # Kafka Basic Commands
 
+## Topic
+- Disk space for a given topic: `kafka-log-dirs --describe --bootstrap-server=localhost:9092 --topic-list <topic-name> --describe | grep -oP '(?<=size":)\d+' | awk '{ sum += $1 } END { print sum }'`
 - Get topic list: `bin/kafka-topics --list --zookeeper localhost:2181`
 - Describe topic: `bin/kafka-topics --zookeeper localhost:2181 --describe --topic string_user_topic_dlq`
 - Purge a topic: `bin/kafka-topics --zookeeper localhost:2181 --alter --topic string_user_topic_dlq --config retention.ms=1000`
@@ -10,15 +12,21 @@
 
 - Get number of messages in topic: `bin/kafka-run-class kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic 8c7a58db-fcac-451c-b1a1-f857c9a42476 --time -1 --offsets 1 | awk -F ":" '{sum += $3} END {print sum}'`
 
+## Producer
+- CLI Producer: `bin/kafka-console-producer --topic inputTopic --broker-list localhost:9092`
+
+## Consumer
 - CLI Consumer : `bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic 8c7a58db-fcac-451c-b1a1-f857c9a42476`
 
 - CLI Consumer from beginning:`bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic inputTopic --from-beginning`
 
-- CLI Producer: `bin/kafka-console-producer --topic inputTopic --broker-list localhost:9092`
-
 - List consumer groups : `bin/kafka-consumer-groups --list --bootstrap-server localhost:9092`
 
 - Describe consumer group: `bin/kafka-consumer-groups --describe --group 5ab198ab-ae3c-456b-964a-919b72e2ab82 --bootstrap-server localhost:9092`
+
+## Broker config
+- List of the configuration of broker:
+`kafka-configs --bootstrap-server=localhost:9092 --entity-type brokers --entity-name 1 --all --describe`
 
 - Change the broker config in confluent:
 `cd /confluent-5.1.0/etc/kafka/server.properties`
