@@ -39,15 +39,21 @@ jdk() {
 - The jmod tool is intended for modules that have native libraries or other configuration files or for modules that you intend to link, with the jlink tool, to a runtime image
 - The JMOD file format lets you aggregate files other than .class files, metadata, and resources
 - This format is transportable but not executable, which means that you can use it during compile time or link time but not at run time
-Eg: ```jmod create --class-path mods/com.greetings --cmds commands
+Eg: ``jmod create --class-path mods/com.greetings --cmds commands
   --config configfiles --header-files src/h --libs lib
   --main-class com.greetings.Main --man-pages man --module-version 1.0
   --os-arch "x86_x64" --os-name "Mac OS X"
   --os-version "10.10.5" greetingsmod
-  ```
+  ``
 
 ## jlink
 - The jlink tool links a set of modules, along with their transitive dependencies, to create a custom runtime image
+
+## jcmd
+
+
+## jconsole
+
 
 ## Miscellaneous
 - List java modules : `java --list-modules`

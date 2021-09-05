@@ -22,3 +22,12 @@ Ctrl+Tab (switch to the last (most recent) tab
 
 ## Open the project settings
 - Navigate to File -> Project Structure
+
+## Zoom in
+- Double click `Shift` to open the quick actions. Search for `Increase Font Size` and hit Enter
+
+## Zoom out
+- Double click `Shift` to open the quick actions. Search for `Decrease Font Size` and hit Enter
+
+## Split Editor Tabs
+- In the editor, right-click the desired editor tab and select how you want to split the editor window (Split Right or Split Down)
