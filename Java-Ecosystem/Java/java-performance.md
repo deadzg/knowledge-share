@@ -160,6 +160,19 @@ Tuning GC:
 - -XX:SurvivorRation=n => How much of the young gen should be taken by the survivor S0 and S1 and the rest of it would be eden
     Find the default value using: `jinfo -flag NewRatio 23140` -> 8 
 
+- -XX:MaxTenuringThreshold=n => How many generations do object survive before it becomes part of old generation. This number is upper bound. JVM may still choose anything less than that if it thinks it is beneficial for the app performance. `jinfo -flag MaxTenuringThreshold 92305` -> 6
+
+- Selecting a GC
+    - Serial: `-XX:+UseSerialGC`
+    - Parallel: Multiple threads performing the GC. Good for larger datasets. `-XX:+UseParallelGC`
+    - Mostly Concurrent: Applications pause is minimized
+        `-XX:+UseConcMarkSweepGC`
+        `-XX:+UseG1GC` -> Default Garbage Collector
+    
+- Tuning G1:
+    - `-XX:ConcGCThreads=n` -> Useful when we want to limit the GC threads to lower the impact on other applications
+    - `-XX:InitiatingHeapOccupancyPercent=n` -> The G1 starts when heap reaches certain level of occupancy. Default value to 45%
+    - `-XX:UseStringDeDepulication` -> Allows the garbage collector to have more space if it find duplicate string in the heap
 
 ## References
 - https://www.baeldung.com/java-profilers
