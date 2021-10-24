@@ -5,10 +5,8 @@
 `/usr/libexec/java_home -v 1.8`
 
 # Install specific Java version
-https://github.com/AdoptOpenJDK/homebrew-openjdk
-`brew tap AdoptOpenJDK/openjdk`
-`brew cask install <version>`
-Eg: `brew cask install adoptopenjdk11`
+`brew install openjdk@version`
+Eg: `brew install openjdk@17`
 
 # Change JDK
 Copy the below code in .bash_profile
