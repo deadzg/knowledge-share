@@ -1,6 +1,37 @@
 # Key points
+- Java is `pass-by-value`
+```
+public void m1() {
+    int x; int y;
+    x=5; y=10;
+    int r1 = sum (x,y);
+    List<Integer> things = new ArrayList<>();
+    things.add(x);things.add(y);
+    int r2 = sizeOfThings(things); 
+}
+// Primitive values are passed
+public int sum(int x, int y) {
+    return x+y;
+}
 
--  `volatile`: This makes a java variable to be stored in main memory rather than the CPU cache.
+// Reference of `things` is passed as the value
+public int sizeOfThings(List<Integer> things) {
+    return things.size();
+}
+
+```
+- Access modifiers: `private` , `public`, `protected`, `default`
+- Other modifiers: `static`, `final`, `abstract`, `synchronized`, `volatile`
+
+- `static`: It can be applied to fields and methods. Static fields and methods are class members (NOT object members)
+
+- `final`: Can be used at field, method, class
+    - If used with **field** implies the field reference cannot be changed
+    - If used with **method** or **class** implies that method or class cannot be extended or overridden
+- `abstract`: Implies a class cannot be instantiated. It is meant to only be sub-classed
+- `synchronized`: Can be used at instance as well as with static methods and code blocks. It implies we make Java use a monitor lock to provide synchronization for a given code fragment
+
+-  `volatile`: This makes a java variable to be stored or read from  main memory rather bypassing the CPU cache.
 
 -  `Future`: represents result of async computation. Result can be obtained using method get when the computation is completed, blocking if necessary until it is ready.
 
@@ -10,7 +41,7 @@
 
 -  `Unboxing`: Convert reference type to corresponding primitive type
 
--  `Checked Exception` : Comile time
+-  `Checked Exception` : Compile time
 
 -  `Unchecked Exceptio`n : Runtime
 
@@ -219,3 +250,4 @@ For using Modulus in Java: `Math.floorMod(-3,2)`
 - [3] https://www.whizlabs.com/blog/what-is-just-in-time-compiler-difference-between-compiler-and-interpreter/
 - [4] https://metebalci.com/blog/demystifying-the-jvm-interpretation-jit-and-aot-compilation/
 -[5] http://openjdk.java.net/jeps/295
+-[6] https://www.baeldung.com/java-interview-questions
