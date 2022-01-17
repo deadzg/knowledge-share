@@ -1,25 +1,27 @@
 # Key points
 - Java is `pass-by-value`
-```
-public void m1() {
-    int x; int y;
-    x=5; y=10;
-    int r1 = sum (x,y);
-    List<Integer> things = new ArrayList<>();
-    things.add(x);things.add(y);
-    int r2 = sizeOfThings(things); 
-}
-// Primitive values are passed
-public int sum(int x, int y) {
-    return x+y;
-}
 
-// Reference of `things` is passed as the value
-public int sizeOfThings(List<Integer> things) {
-    return things.size();
-}
+    ```java
+        public void m1() {
+            int x; int y;
+            x=5; y=10;
+            int r1 = sum (x,y);
+            List<Integer> things = new ArrayList<>();
+            things.add(x);things.add(y);
+            int r2 = sizeOfThings(things); 
+        }
+        // Primitive values are passed
+        public int sum(int x, int y) {
+            return x+y;
+        }
 
-```
+        // Reference of `things` is passed as the value
+        public int sizeOfThings(List<Integer> things) {
+            return things.size();
+        }
+    ```
+
+
 - Access modifiers: `private` , `public`, `protected`, `default`
 - Other modifiers: `static`, `final`, `abstract`, `synchronized`, `volatile`
 
@@ -43,12 +45,15 @@ public int sizeOfThings(List<Integer> things) {
 
 -  `Checked Exception` : Compile time
 
--  `Unchecked Exceptio`n : Runtime
+-  `Unchecked Exception` : Runtime
 
 - `try-with-resources`: The try-with-resources statement is a try statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The try-with-resources statement ensures that each resource is closed at the end of the statement. Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource. 
 
 - `shallow copy`: New copy of the object is created but the object contained inside the main object points to the older reference. This means any change in the contaning object will change the cloned object.
   
+## Java Memory
+- `Heap`: All the objects are created on heap. JVM throws OOM erro when heap is full. String pool is part of Java Heap
+- `Stack`: JVM reserves blockes for local variables and additional data. LIFO structure. Whenever a method is called, a new block is reserved for local variables and object references.When method finishes the blocks are released. Stack has much less memory space than heap. It throws StackOverflow error when full (in case of bad recursive call or very deep recursion).
 
 ## JDK, JRE, JVM:
 
@@ -173,14 +178,10 @@ For using Modulus in Java: `Math.floorMod(-3,2)`
 - It's not associated with a particular class
 
 - It comprises of:
-
-- List of params
-
-- A body
-
-- return type
-
-- possible a list of exceptions
+    - List of params
+    - A body
+    - return type
+    - possible a list of exceptions
 
 - Eg: `(parameters) -> expression` or `(parameters) -> { statements; }`
 
