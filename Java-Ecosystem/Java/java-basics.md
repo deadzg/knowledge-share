@@ -245,6 +245,23 @@ For using Modulus in Java: `Math.floorMod(-3,2)`
 
 - Ahead-of-Time compilation of the resulting bytecode to native code reduces startup time, as well as memory consumption.
 
+## What is Servlet? [7]
+Servlets are the Java programs that run on the Java-enabled web server or application server. They are used to handle the request obtained from the webserver, process the request, produce the response, then send a response back to the webserver. 
+Execution of Servlets basically involves six basic steps: 
+
+- The clients send the request to the webserver.
+- The web server receives the request.
+- The web server passes the request to the corresponding servlet.
+- The servlet processes the request and generates the response in the form of output.
+- The servlet sends the response back to the webserver.
+- The web server sends the response back to the client and the client browser displays it on the screen.
+
+Servelts are maped to a url/endpoint.
+
+
+## What is Java Servlet Filter?
+Java Servlet Filter is used to intercept the client request and do some pre-processing. It can also intercept the response and do post-processing before sending to the client in web application
+
 # References
 - [1] https://stackoverflow.com/questions/16568253/difference-between-jvm-and-hotspot
 - [2] https://stackoverflow.com/questions/1326071/is-java-a-compiled-or-an-interpreted-programming-language
@@ -252,3 +269,4 @@ For using Modulus in Java: `Math.floorMod(-3,2)`
 - [4] https://metebalci.com/blog/demystifying-the-jvm-interpretation-jit-and-aot-compilation/
 -[5] http://openjdk.java.net/jeps/295
 -[6] https://www.baeldung.com/java-interview-questions
+-[7] https://www.geeksforgeeks.org/introduction-java-servlets/

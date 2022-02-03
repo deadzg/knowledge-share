@@ -97,8 +97,16 @@ ID =>  the type of the entity's identifier
 Disadvantage: You can often have some crappy code where lots of mapping between data sets and objects occur, logic is mixed with in SQL
 
 - JPA: is standard for ORM
-	It allows to map object in code to db tables. It can hide SQl from developers so they deal in java classes. It allows to load and save data magically.
+
+	It allows to map object in code to db tables. It can hide SQL from developers so they deal in java classes. It allows to load and save data magically.
 	Under the hood most JPA providers use JDBC to read and write from and to DB
+	JPA is just a specification, meaning there is no implementation. You can annotate your classes as much as you would like with JPA annotations, however, without an implementation, nothing will happen.
+
+- Spring Data JPA vs Hibernate
+	Hibernate is a JPA implementation, while Spring Data JPA is a JPA Data Access Abstraction
+	Spring Data JPA is not an implementation or JPA provider, it's just an abstraction used to significantly reduce the amount of boilerplate code required to implement data access layers for various persistence stores
+	Hibernate provides a reference implementation of the Java Persistence API that makes it a great choice as an ORM tool with benefits of loose coupling.
+	Spring Data JPA always requires the JPA provider such as Hibernate or Eclipse Link.
 
 ## Tips
 - As of Spring Framework 4.3, Spring does not require the @Autowired anotation if a target bean only defines one constructor.

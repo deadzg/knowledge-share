@@ -31,3 +31,6 @@ Ctrl+Tab (switch to the last (most recent) tab
 
 ## Split Editor Tabs
 - In the editor, right-click the desired editor tab and select how you want to split the editor window (Split Right or Split Down)
+
+## Search a file or class
+- Cmd + Shift + A

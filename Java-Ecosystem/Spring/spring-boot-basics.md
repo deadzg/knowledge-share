@@ -71,3 +71,71 @@ http://www.springboottutorial.com/spring-boot-starter-parent
 
 - Autoconfiguration of HATEOAS's by using @EnableHypermediaSupport
 
+Spring Security:
+- Authentication
+- Authorization
+- Principal
+	Currently logged in user
+- Granted Authority
+- Roles
+	Group of authorities
+
+***Spring Security default behaviour***
+- Adds mandatory authentication for URLs
+- Adds login form
+- Handles login error
+- Creates a user (default username:user) and sets a default password
+	You can customize the user and password by adding the below properties in application.properties file
+	spring.security.user.name=testuser
+	spring.security.user.password=pass
+
+Filter can be applied to wide range of urls
+
+
+https://www.youtube.com/watch?v=caCJAJC41Rk&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE&index=6&ab_channel=JavaBrains
+
+When you inject the Spring security it intercepts /*  ie. all the request to it's own filter DelegatingFilterProxy
+
+DelegatingFilterProxy -> It doesn't do the job itself , but delegates to the respective filters which actulally does the job
+
+For authentication you have Auhentication Filter
+Same with Authorization filter
+
+When Spring Security authenticates a request it takes input as creds and return principal as output
+It keeps track of input and output using an object of type Authentication and once the user is authenticated it stores principal
+
+Providers actually does the authentication
+AuthenticationProvider (Interface)
+	authenticate() -> Need to implement this
+
+
+An application can have multiple authentication provider based on number of types of authentication (eg: OAuth2, LDAP, Basic etc.)type the app supports
+
+These different types of authentication type is managed by AuthenticationManager
+	authenticate()
+
+ProviderManager implements AuthenticationManager
+
+It delegates the work to the respective AuthenticationProvider
+
+
+In order for AuthenticationProvider to let ProviderManager know what kind of auth it (AuthenticationProvider) supports  has support() method
+
+
+In order to implement authentication() of AuthenticationProvider, it needs to load the user details from some identity provider.
+
+For this Spring exposes UserDetailsService loadUserByUsername()
+and return the User object
+
+This user object form the Principal which is returned via authenticate  method as Authenticate object
+
+It stores this Authenticate objct containing the Principal in Security Context in ThreadLocal.
+The reason which you don't have to login again because it's stored in user session. There is a filter which  manages user session. It takes the authenticated principal and associates it with user session
+
+
+
+If the creds are not correct, then a Authentication Exception is thrown which bubbles up till the Autnetication Filter and thrown as an error page or handled based on the logic
+
+
+This is how you configure the user schema in a database
+https://docs.spring.io/spring-security/reference/servlet/appendix/database-schema.html#_user_schema
