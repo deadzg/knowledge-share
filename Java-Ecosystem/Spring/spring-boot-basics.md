@@ -89,8 +89,25 @@ Spring Security:
 	spring.security.user.name=testuser
 	spring.security.user.password=pass
 
-Filter can be applied to wide range of urls
+AuthenticationManager
+authenticate()
 
+AuthenticationManagerBuilder
+
+
+ -> Manages security in spring app
+
+
+HttpSecurity let's you configure the paths and the level of access to those paths
+
+
+How does Spring Security works?
+When you inject the spring security dependency it by default intercepts all your request using the concept call Filters
+
+Filter is a contrcut in a servlet application which allows you to intercept the request coming in.
+Usually there is a one to one mapping between a url and a servlet method
+
+Filter can be applied to wide range of urls
 
 https://www.youtube.com/watch?v=caCJAJC41Rk&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE&index=6&ab_channel=JavaBrains
 
