@@ -22,3 +22,7 @@ Add `source ~/.bashrc` in your bash_profile
 ## Find service running on a specific port
 `sudo lsof -i :<port-number>`
 Eg: `sudo lsof -i :8080`
+
+## Search for a text in a folder but only in specific files
+`grep -ir --include \*filepattern.text 'search-content' .`
+Eg: `grep -ir --include \*manifest.json 'permissions' .`
