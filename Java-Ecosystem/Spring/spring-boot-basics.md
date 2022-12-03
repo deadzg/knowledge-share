@@ -19,14 +19,14 @@ Spring Boot Basics
 Logging Spring Boot:
 - If you use Starters , logback is used for logging
 
-Questions:
-What configuration did Spring Boot does on its own?
+# Questions:
+## What configuration did Spring Boot does on its own?
 - For eg: When building an web app, you need to be aware of what all dependencies needs to be included.
 Spring boot gives a starter package which includes everything related to the type of Spring Application
 
-Explain in detail @EnableAutoConfiguration?
+## Explain in detail @EnableAutoConfiguration?
 
-What is spring-boot-starter-parent?
+## What is spring-boot-starter-parent?
  All Spring Boot projects typically use spring-boot-starter as the parent in pom.xml
 
 <parent>
@@ -71,7 +71,7 @@ http://www.springboottutorial.com/spring-boot-starter-parent
 
 - Autoconfiguration of HATEOAS's by using @EnableHypermediaSupport
 
-Spring Security:
+## Spring Security
 - Authentication
 - Authorization
 - Principal
@@ -102,7 +102,7 @@ HttpSecurity let's you configure the paths and the level of access to those path
 
 
 How does Spring Security works?
-When you inject the spring security dependency it by default intercepts all your request using the concept call Filters
+When you inject the spring security dependency it by default intercepts all your request using the concept called Filters
 
 Filter is a contrcut in a servlet application which allows you to intercept the request coming in.
 Usually there is a one to one mapping between a url and a servlet method
@@ -113,7 +113,7 @@ https://www.youtube.com/watch?v=caCJAJC41Rk&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZA
 
 When you inject the Spring security it intercepts /*  ie. all the request to it's own filter DelegatingFilterProxy
 
-DelegatingFilterProxy -> It doesn't do the job itself , but delegates to the respective filters which actulally does the job
+DelegatingFilterProxy -> It doesn't do the job itself , but delegates to the respective filters which actually does the job
 
 For authentication you have Auhentication Filter
 Same with Authorization filter
@@ -149,10 +149,14 @@ This user object form the Principal which is returned via authenticate  method a
 It stores this Authenticate objct containing the Principal in Security Context in ThreadLocal.
 The reason which you don't have to login again because it's stored in user session. There is a filter which  manages user session. It takes the authenticated principal and associates it with user session
 
-
-
 If the creds are not correct, then a Authentication Exception is thrown which bubbles up till the Autnetication Filter and thrown as an error page or handled based on the logic
-
 
 This is how you configure the user schema in a database
 https://docs.spring.io/spring-security/reference/servlet/appendix/database-schema.html#_user_schema
+
+## Spring Actuator
+Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
+
+
+References:
+[1] https://www.baeldung.com/spring-boot-actuators

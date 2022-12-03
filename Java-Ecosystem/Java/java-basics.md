@@ -52,7 +52,10 @@
 - `shallow copy`: New copy of the object is created but the object contained inside the main object points to the older reference. This means any change in the contaning object will change the cloned object.
   
 ## Java Memory
-- `Heap`: All the objects are created on heap. JVM throws OOM erro when heap is full. String pool is part of Java Heap
+- `Heap`: 
+    - All the objects are created on heap 
+    - JVM throws OOM error when heap is full
+    - String pool is part of Java Heap
 - `Stack`: JVM reserves blockes for local variables and additional data. LIFO structure. Whenever a method is called, a new block is reserved for local variables and object references.When method finishes the blocks are released. Stack has much less memory space than heap. It throws StackOverflow error when full (in case of bad recursive call or very deep recursion).
 
 ## JDK, JRE, JVM:
@@ -111,6 +114,16 @@ Common scenario: A single application server such as Glassfish or Tomcat running
 - Compile Java classes to native code prior to launching the virtual machine.
 - Improve the start-up time of both small and large Java applications, with at most a limited impact on peak performance.
 - JIT compilers are fast, but Java programs can become so large that it takes a long time for the JIT to warm up completely. Infrequently-used Java methods might never be compiled at all, potentially incurring a performance penalty due to repeated interpreted invocations 
+
+## Thread
+- Each thread have it's own stack but share the heap memory
+- ReentrantLocks [8]
+
+- Condition
+    - await
+    - signal
+    -signalAll
+
 
 ## Semaphores
 
@@ -262,6 +275,14 @@ Servelts are maped to a url/endpoint.
 ## What is Java Servlet Filter?
 Java Servlet Filter is used to intercept the client request and do some pre-processing. It can also intercept the response and do post-processing before sending to the client in web application
 
+## Record
+- Declared as final classes, so cannot be inherited
+- They’re already inheriting from another class named java.lang.Record. Therefore, Records can’t extend any other class, as Java does not allow multiple-inheritance
+- Records can implement other interfaces
+- For each component, there is an accessor method,
+- There are auto-generated implementations for toString, equals and hashCode based on all components.
+- Finally, there is an auto-generated constructor that accepts all components as its arguments.
+
 # References
 - [1] https://stackoverflow.com/questions/16568253/difference-between-jvm-and-hotspot
 - [2] https://stackoverflow.com/questions/1326071/is-java-a-compiled-or-an-interpreted-programming-language
@@ -270,3 +291,4 @@ Java Servlet Filter is used to intercept the client request and do some pre-proc
 -[5] http://openjdk.java.net/jeps/295
 -[6] https://www.baeldung.com/java-interview-questions
 -[7] https://www.geeksforgeeks.org/introduction-java-servlets/
+-[8] https://blogs.oracle.com/javamagazine/post/java-thread-synchronization-raceconditions-locks-conditions

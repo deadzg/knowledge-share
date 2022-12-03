@@ -1,4 +1,9 @@
 # Spring Basics
+
+#Dependency Injection
+Dependency injection is basically providing the objects that an object needs (its dependencies) instead of having it construct them itself. It's a very useful technique for testing, since it allows dependencies to be mocked or stubbed out.
+
+
 ## What all types of bean scopes is supported by Spring?
 - **Singletone**: Scopes a single bean definition to a single object instance per Spring IoC container. Used for stateless beans
 obj1 has obj2
@@ -6,7 +11,7 @@ obj1:inst1 has obj2:inst1
 obj1:inst2 has obj2:inst1
 obj1:inst3 has obj2:inst1
 
-- **Prototype**: Scopes a single bean definition to any number of object instances. Used for stateful beans. Spring doesnot manage full lifecycle of the prototype bean. It's the responsiblity of the client the destroy the beans.
+- **Prototype**: Scopes a single bean definition to any number of object instances. Used for stateful beans. Spring doesnot manage full lifecycle of the prototype bean. It's the responsiblity of the client to destroy the beans.
 obj1 has obj2
 obj1:inst1 has obj2:inst1
 obj1:inst2 has obj2:inst2
@@ -37,6 +42,9 @@ Eg: If spring-data-jpa and spring-jdbc is in classpath, then it automatically tr
 - @Valid: Makes sure the request body is valid
 - @PathVariable: Bind a path variable with method param
 - ResponseEntity :is meant to represent the entire HTTP response. You can control anything that goes into it: status code, headers, and body
+- @Autowire: It allows Spring to resolve and inject collaborating beans into our bean.
+- @Qualifier: If more than one bean of the same type is available in the container, then this annotation is used to specify which bean to pick up during the autowiring
+- @ControllerAdvice: It intercepts exceptions from controllers accross the application.
 
 ## Configuration
 Spring provides various ways to override the default application context properties ie. via:
@@ -119,4 +127,5 @@ Disadvantage: You can often have some crappy code where lots of mapping between 
 - [3] https://www.vojtechruzicka.com/documenting-spring-boot-rest-api-swagger-springfox/
 - [4] https://www.baeldung.com/spring-cloud-bootstrap-properties
 - [5] https://www.baeldung.com/spring-boot-log-groups
+- [6] https://www.baeldung.com/spring-autowire
 
