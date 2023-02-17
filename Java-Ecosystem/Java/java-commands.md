@@ -25,6 +25,10 @@ jdk() {
  Eg: `jdk 11`
 
  
+# Installing an Early Java Release
+Download all the cask:`brew tap homebrew/cask-versions`
+Check the info about the cask:`brew info --cask  java-beta`
+Install the cask:`brew install --cask  java-beta`
 
 # Command Line Tools
 ## jar
